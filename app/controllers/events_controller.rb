@@ -52,47 +52,30 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
 	if (@event.starttime.year == 2012 and @event.starttime.month == 4 and @event.starttime.day >= 8)
-	  logger.debug "Event in range: #{@event.id}"
 	  for day in @event.starttime.day..@event.endtime.day
             if (@event.starttime.day == @event.endtime.day) 
               for hour in @event.starttime.hour..(@event.endtime.hour)
-	        logger.debug "Event in range: #{day}"
-	        logger.debug "Event in range: #{hour}"
                 @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-	        logger.debug "hour id: #{@hour.id}"
 	        @hour.numberbusy += 1
 	        @hour.save
-		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
 	      end
 	    elsif (day == @event.starttime.day)
               for hour in @event.starttime.hour..23
-	        logger.debug "Event in range: #{day}"
-	        logger.debug "Event in range: #{hour}"
                 @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-	        logger.debug "hour id: #{@hour.id}"
 	        @hour.numberbusy += 1
 	        @hour.save
-		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
 	      end
 	    elsif (day == @event.endtime.day)
               for hour in 0..(@event.endtime.hour + 1)
-		logger.debug "Event in range: #{day}"
-	        logger.debug "Event in range: #{hour}"
                 @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-	        logger.debug "hour id: #{@hour.id}"
 	        @hour.numberbusy += 1
 	        @hour.save
-		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
 	      end
 	    else
               for hour in 0..23
-		logger.debug "Event in range: #{day}"
-	        logger.debug "Event in range: #{hour}"
                 @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-	        logger.debug "hour id: #{@hour.id}"
 	        @hour.numberbusy += 1
 	        @hour.save
-		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
 	      end
 	    end
 	  end
@@ -113,8 +96,65 @@ class EventsController < ApplicationController
     @users = User.all
 
     respond_to do |format|
+      if (@event.starttime.year == 2012 and @event.starttime.month == 4 and @event.starttime.day >= 8)
+        for day in @event.starttime.day..@event.endtime.day
+          if (@event.starttime.day == @event.endtime.day) 
+            for hour in @event.starttime.hour..(@event.endtime.hour)
+              @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+    	      @hour.numberbusy -= 1
+    	      @hour.save
+    	    end
+    	  elsif (day == @event.starttime.day)
+            for hour in @event.starttime.hour..23
+              @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+    	      @hour.numberbusy -= 1
+    	      @hour.save
+    	    end
+    	  elsif (day == @event.endtime.day)
+            for hour in 0..(@event.endtime.hour + 1)
+              @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+  	      @hour.numberbusy -= 1
+    	      @hour.save
+    	    end
+    	  else
+            for hour in 0..23
+              @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+    	      @hour.numberbusy -= 1
+    	      @hour.save
+    	    end
+    	  end
+        end
+      end    
       if @event.update_attributes(params[:event])
-        
+        if (@event.starttime.year == 2012 and @event.starttime.month == 4 and @event.starttime.day >= 8)
+	  for day in @event.starttime.day..@event.endtime.day
+            if (@event.starttime.day == @event.endtime.day) 
+              for hour in @event.starttime.hour..(@event.endtime.hour)
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+	        @hour.numberbusy += 1
+	        @hour.save
+	      end
+	    elsif (day == @event.starttime.day)
+              for hour in @event.starttime.hour..23
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+	        @hour.numberbusy += 1
+	        @hour.save
+	      end
+	    elsif (day == @event.endtime.day)
+              for hour in 0..(@event.endtime.hour + 1)
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+	        @hour.numberbusy += 1
+	        @hour.save
+	      end
+	    else
+              for hour in 0..23
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
+	        @hour.numberbusy += 1
+	        @hour.save
+	      end
+	    end
+	  end
+	end
   
        @event.save
         
@@ -132,53 +172,35 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @users = User.all
- #   @event.destroy
 
     respond_to do |format|
       
-         if @event.destroy
+      if @event.destroy
     	if (@event.starttime.year == 2012 and @event.starttime.month == 4 and @event.starttime.day >= 8)
-    	  logger.debug "Event in range: #{@event.id}"
     	  for day in @event.starttime.day..@event.endtime.day
-                if (@event.starttime.day == @event.endtime.day) 
-                  for hour in @event.starttime.hour..(@event.endtime.hour)
-    	        logger.debug "Event in range: #{day}"
-    	        logger.debug "Event in range: #{hour}"
-                    @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-    	        logger.debug "hour id: #{@hour.id}"
+            if (@event.starttime.day == @event.endtime.day) 
+              for hour in @event.starttime.hour..(@event.endtime.hour)
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
     	        @hour.numberbusy -= 1
     	        @hour.save
-    		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
     	      end
     	    elsif (day == @event.starttime.day)
-                  for hour in @event.starttime.hour..23
-    	        logger.debug "Event in range: #{day}"
-    	        logger.debug "Event in range: #{hour}"
-                    @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-    	        logger.debug "hour id: #{@hour.id}"
+              for hour in @event.starttime.hour..23
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
     	        @hour.numberbusy -= 1
     	        @hour.save
-    		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
     	      end
     	    elsif (day == @event.endtime.day)
-                  for hour in 0..(@event.endtime.hour + 1)
-    		logger.debug "Event in range: #{day}"
-    	        logger.debug "Event in range: #{hour}"
-                    @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-    	        logger.debug "hour id: #{@hour.id}"
+              for hour in 0..(@event.endtime.hour + 1)
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
     	        @hour.numberbusy -= 1
     	        @hour.save
-    		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
     	      end
     	    else
-                  for hour in 0..23
-    		logger.debug "Event in range: #{day}"
-    	        logger.debug "Event in range: #{hour}"
-                    @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
-    	        logger.debug "hour id: #{@hour.id}"
+              for hour in 0..23
+                @hour = Hour.find_by_time(Time.utc(2012, 4, day, hour, 00, 00).in_time_zone)
     	        @hour.numberbusy -= 1
     	        @hour.save
-    		logger.debug "event's new numberbusy: #{@hour.numberbusy}"
     	      end
     	    end
     	  end
