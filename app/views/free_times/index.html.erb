@@ -1,0 +1,16 @@
+<div id="header">
+          <div class="nav">
+               <p>TeamCal &nbsp; &nbsp; &nbsp; &nbsp;<%= link_to "home", root_path %> &nbsp; <%= link_to "users", users_path %> &nbsp; <%= link_to "calendar", events_path %> &nbsp; <%= link_to "availability", free_times_path %> &nbsp; <%= link_to '← Back', :back %></p>
+          </div>
+     </div>
+</br></br></br>
+
+<center><h4>Group Availability</h4><br><br>
+<table>
+	<% @hours.each do |hour| %>
+		<tr>
+			<th> <h3>Time: <%= hour.time %> </h3></th>
+		        <th> <h3> ⎪ Number of Busy Group Members: <%= hour.numberbusy %> </h3> </th>
+		</tr>
+	<% end %>
+</table></center>
