@@ -41,6 +41,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @users = User.all
+    
   end
 
   # POST /events
@@ -113,6 +114,10 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        
+  
+       @event.save
+        
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else

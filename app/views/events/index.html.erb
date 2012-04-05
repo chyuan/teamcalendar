@@ -13,10 +13,6 @@
     <th><h2>Title &nbsp; &nbsp;</h2><hr></th>
     <th><h2>Start time &nbsp; &nbsp;</h2><hr></th>
     <th><h2>End time &nbsp; &nbsp; </h2><hr></th>
-    <th><h2>Repeat &nbsp; &nbsp;</h2><hr></th>
-    <th><h2>Daily &nbsp; &nbsp; </h2> <hr></th>
-    <th><h2>Weekly &nbsp; &nbsp; </h2><hr></th>
-    <th><h2>Monthly &nbsp; &nbsp;</h2><hr> </th>
     <th><h2>User</h2> <hr></th>
     <th></th>
     <th></th>
@@ -27,10 +23,6 @@
     <td> <h3> <%= event.title %> &nbsp; &nbsp;</h3></td>
     <td> <h3> <%= event.starttime.strftime('%b %e, %Y at %l:%M %p') %> &nbsp; &nbsp; </h3></td>
     <td> <h3> <%= event.endtime.strftime('%b %e, %Y at %l:%M %p') %> &nbsp; &nbsp; </h3></td>
-    <td> <h3> <%= event.repeat %> &nbsp; &nbsp;</h3></td>
-    <td> <h3> <%= event.daily %>&nbsp; &nbsp; </h3></td>
-    <td> <h3> <%= event.weekly %>&nbsp; &nbsp;</h3></td>
-    <td> <h3> <%= event.monthly %>&nbsp; &nbsp;</h3></td>
     <td> <h3> <%= User.find_by_id(event.user_id)[:name] %></h3></td>
     <td> <h3> &nbsp; &nbsp; <%= link_to 'Edit', edit_event_path(event) %></h3></td>
     <td> <h3>&nbsp; <%= link_to 'Remove', event, confirm: 'Are you sure you want to remove this event?', method: :delete %></td>
