@@ -122,40 +122,6 @@ a {
   color:#4c4642;
 }
 
-.small-button2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: #4c4642;
-  width: 210px;
-  display: inline-block;
-  margin-left: 10px;
-  height: 17px;
-  width: 45px;
-  padding-top: 1px;
-  text-align: center;
-  a {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-.small-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: #4c4642;
-  width: 120px;
-  display: inline-block;
-  margin-left: 10px;
-  height: 17px;
-  width: 45px;
-  padding-top: 1px;
-  text-align: center;
-  a {
-    color: white;
-    text-decoration: none;
-  }
-}
-
 h4 {
   width: 450px;
   margin-bottom: 40px;
@@ -213,11 +179,6 @@ h4 {
   }
 }
 
-.submission {
-  margin-top: 20px;
-  border-top: 1px dotted #4c4642;
-  width: 400px;
-}
 
 .title {
   display: inline;
@@ -243,31 +204,6 @@ h4 {
   text-transform: uppercase;
   color: #565656;
   font-size: 19px;
-}
-.rating {
-  img { width: 77px; }
-  position: relative;
-  top: 5px;
-  display: inline-block;
-}
-
-.company {
-  size: 1.2em;
-  display: inline;
-  font-family: Cutive;
-  text-transform: uppercase;
-  size: 0.8em;
-}
-
-.woo {
-  position: absolute;
-  z-index: -1;
-  top: 132px;
-  img {
-    height: 320px;
-    width: 670px;
-  }
-  left: -82px;
 }
 
 .button {
@@ -300,39 +236,12 @@ h4 {
 	top:1px;
 }
 
-.block {
-  display: block;
-  margin-bottom: 20px;
-  .title {
-    display: inline;
-    font-family: Cutive;
-    text-transform: lowercase;
-    font-size: 1.6em;
-  }
-
-  .company {
-    size: 1em;
-    display: inline;
-    font-family: Cutive;
-    text-transform: uppercase;
-    size: 0.8em;
-  }
-}
 
 h1 {
   color: #565656;
   font-family: Lobster;
   font-size: 40px;
   text-transform: none;
-}
-
-h4 {
-  color: #565656;
-  font-family: Lobster;
-  font-size: 40px;
-  text-transform: none;
-  margin-bottom: -20px;
-  margin-top: -10px;
 }
 
 h2 {
@@ -348,6 +257,15 @@ h3 {
   color: #694497;
   font-size: 17px;
   margin-bottom: -10px;
+}
+
+h4 {
+  color: #565656;
+  font-family: Lobster;
+  font-size: 40px;
+  text-transform: none;
+  margin-bottom: -20px;
+  margin-top: -10px;
 }
 
 .wrapper {
@@ -389,26 +307,4 @@ h3 {
     padding-top: 8px;
   }
 
-  .account {
-    display: block;
-    position: relative;
-    width: 100px;
-    height: 25px;
-    background: black;
-    left: 69%;
-    text-align: center;
-  }
-
-  .branding {
-    position: relative;
-    left: 500px;
-    margin-top: 2px;
-    font-size: 1.8em;
-    font-family: Lato;
-    text-transform: lowercase;
-    display: inline-block;
-    float: left;
-    text-indent: 10px;
-    color: #2a7357;
-  }
 }
