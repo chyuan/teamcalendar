@@ -25,8 +25,8 @@
 <% @events.each do |event| %>
 <tr>   
     <td> <h3> <%= event.title %> &nbsp; &nbsp;</h3></td>
-    <td> <h3> <%= event.starttime %> &nbsp; &nbsp; </h3></td>
-    <td> <h3> <%= event.endtime %> &nbsp; &nbsp; </h3></td>
+    <td> <h3> <%= event.starttime.strftime('%b %e, %Y at %l:%M %p') %> &nbsp; &nbsp; </h3></td>
+    <td> <h3> <%= event.endtime.strftime('%b %e, %Y at %l:%M %p') %> &nbsp; &nbsp; </h3></td>
     <td> <h3> <%= event.repeat %> &nbsp; &nbsp;</h3></td>
     <td> <h3> <%= event.daily %>&nbsp; &nbsp; </h3></td>
     <td> <h3> <%= event.weekly %>&nbsp; &nbsp;</h3></td>

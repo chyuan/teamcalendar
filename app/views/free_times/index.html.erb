@@ -10,8 +10,7 @@
 <table>
 	<% @hours.each do |hour| %>
 		<tr>
-			<th> <h3>Time: <%= hour.time %> </h3></th>
-		        <th> <h3> ⎪ Number of Busy Group Members: <%= hour.numberbusy %> </h3> </th>
-		</tr>
+			<th> <h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3></th>
+		       		</tr>
 	<% end %>
 </table></center>
