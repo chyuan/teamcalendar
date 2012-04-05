@@ -6,11 +6,57 @@
      </div>
 </br></br></br>
 
-<center><h4>Group Availability</h4><br><br>
+<center><h4>Group Meeting Availability</h4><br><br>
 <table>
-	<% @hours.each do |hour| %>
-		<tr>
-			<th> <h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3></th>
-		       		</tr>
+	<h2>Sunday:</h2><br>
+	<% @sunday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
 	<% end %>
-</table></center>
+</table>
+<br><br>
+<table>
+	<h2>Monday:</h2><br>
+	<% @monday.each do |mon| %>
+		<h3><%= mon.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+<table>
+	<h2>Tuesday:</h2><br>
+	<% @tuesday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+<table>
+	<h2>Wednesday:</h2><br>
+	<% @wednesday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+<table>
+	<h2>Thursday:</h2><br>
+	<% @thursday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+<table>
+	<h2>Friday:</h2><br>
+	<% @friday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+<table>
+	<h2>Saturday:</h2><br>
+	<% @saturday.each do |hour| %>
+		<h3><%= hour.time.strftime('%A %b %e, %Y at %l:%M %p') %> </h3>
+	<% end %>
+</table>
+<br><br>
+
+
+
+</center>
