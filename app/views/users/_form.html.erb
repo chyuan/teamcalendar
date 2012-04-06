@@ -9,7 +9,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <error><center><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved. You must enter in a user name.</center></error>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
