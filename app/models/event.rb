@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
 	
-	validates_presence_of :user_id
+	validates_presence_of :user_id,:title
 	validate :valid_times
 
    def valid_times
