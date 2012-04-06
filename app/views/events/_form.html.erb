@@ -11,7 +11,7 @@
 
 <% if @event.errors.any? %>
     <div id="error_explanation">
-      <error><center><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved. All fields must be filled out.</center></error>
+      <error><center><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved. <br> Validate that all fields are filled out and start time is end time.</center></error>
 
 
       <ul>
