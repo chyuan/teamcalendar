@@ -7,9 +7,12 @@
 </br></br></br>
 
 <%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
+
+
+<% if @event.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <error><center><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved. All fields must be filled out.</center></error>
+
 
       <ul>
       <% @event.errors.full_messages.each do |msg| %>
@@ -18,6 +21,9 @@
       </ul>
     </div>
   <% end %>
+
+
+  
 <center>
   <div class="field"><h3>
     <%= f.label :title %>
@@ -40,6 +46,7 @@
       <%= f.label :user_id, p.name %></h3>
     </div>
   <% end %><br><br>
+
   <div class="actions">
     <%= f.submit %>
   </div></center>
